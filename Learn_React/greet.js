@@ -1,20 +1,31 @@
-import React from 'react'
+import React from "react";
 
-const curDate=new Date().getHours();
-var greet="";
-if(curDate <12 && curDate >1){
-  greet="Good Morning";
-}else if(curDate>12 &&curDate<20){
-  greet="Good Afternoon";
-}else if(curDate >20){
-  greet="Good Night";
+const curDate = new Date().getHours();
+var greet = "";
+const cssStyle={
+
+ };
+if (curDate < 12 && curDate > 1) {
+  greet = "Good Morning";
+ cssStyle.color='red';
+} else if (curDate > 12 && curDate < 19) {
+  greet = "Good Afternoon";
+  cssStyle.color='white';
+
+} else if (curDate > 18) {
+  greet = 'Good Night';
+  cssStyle.color='red';
 }
+const tm=new Date().toLocaleTimeString();
 export default function App() {
   return (
-   <>
- <div className="back" >
-   <h2>{greet}</h2>
-   </div>
-   </>
-  )
+    <>
+      <div className="back">
+        <div className="main">
+          <h1>{tm}</h1>
+          <h1>Hello <span style={cssStyle}> {greet} </span></h1>
+        </div>
+      </div>
+    </>
+  );
 }
